@@ -71,7 +71,7 @@ export const submitEmployeeData = (): AppThunk => async (dispatch, getState) => 
 
     try {
         // Simulate an API call, replace with actual API integration
-        const response = await fetch('https://employeeapi20240828231706.azurewebsites.net', {
+        const response = await fetch('https://employeeapi20240828231706.azurewebsites.net/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
