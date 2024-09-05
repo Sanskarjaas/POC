@@ -7,7 +7,7 @@ const initialState:EmployeeState={
     lastName: '',
     Dob: new Date(),
     gender:'',
-    phoneNumber :0,
+    phoneNumber :'',
     emailAddress:'',
     fullAddress:'',
     Department:'',
@@ -23,7 +23,7 @@ const employeeSlice=createSlice({
     name:'employee',
     initialState,
     reducers:{
-        setEmployeeData: (state, action: PayloadAction<{firstName: string; lastName: string; Dob: Date; gender: string; phoneNumber: number; emailAddress: string; fullAddress: string; }>) => {
+        setEmployeeData: (state, action: PayloadAction<{firstName: string; lastName: string; Dob: Date; gender: string; phoneNumber: string; emailAddress: string; fullAddress: string; }>) => {
             state.firstName = action.payload.firstName;
             state.lastName = action.payload.lastName;
             state.Dob = action.payload.Dob;
@@ -46,7 +46,7 @@ const employeeSlice=createSlice({
             state.lastName = '';
             state.Dob = new Date();
             state.gender = '';
-            state.phoneNumber = 0;
+            state.phoneNumber = '';
             state.emailAddress = '';
             state.fullAddress = '';
             state.Department = '';
