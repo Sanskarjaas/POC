@@ -12,7 +12,7 @@ interface EmployeeFormValues {
     lastName: string;
     Dob:Date;
     gender:string;
-    phoneNumber:number;
+    phoneNumber:string;
     emailAddress:string;
     fullAddress:string;
    
@@ -86,7 +86,7 @@ const EmployeeForm: React.FC<EmployeeFormProps> = ({ setStep }) => {
                     </FormField>
                     <FormField>
                         <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
-                        <Field id="phoneNumber" name="phoneNumber" type="tel" />
+                        <Field id="phoneNumber" name="phoneNumber"  />
                         <ErrorMessage name="phoneNumber" component="div" />
                     </FormField>
                     <FormField>
