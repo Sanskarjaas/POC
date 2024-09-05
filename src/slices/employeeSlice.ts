@@ -97,6 +97,7 @@ export const submitEmployeeData = (): AppThunk => async (dispatch, getState) => 
         dispatch(setLoading(false));
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+        console.log("error message",error);
         dispatch(setError(errorMessage));
         dispatch(setLoading(false));
     }
