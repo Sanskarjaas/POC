@@ -9,10 +9,7 @@ import { FormContainer,FormField,FormLabel,BackButton,FormButton } from '../Form
 interface DepartmentFormValues {
     Department: string;
     departmentHead: string;
-    numberOfEmployees: number;
-    location: string;
-
-   
+    numberOfEmployees: number
 }
 
 interface DepartmentFormProps {
@@ -31,8 +28,8 @@ const DepartmentForm: React.FC<DepartmentFormProps> = ({ setStep }) => {
     const initialValues: DepartmentFormValues = {
         Department: employee.Department,
         departmentHead: employee.departmentHead,
-        numberOfEmployees: employee.numberOfEmployees,
-        location: employee.location
+        numberOfEmployees: employee.numberOfEmployees
+   
        
     };
 
@@ -75,11 +72,6 @@ const DepartmentForm: React.FC<DepartmentFormProps> = ({ setStep }) => {
                         <FormLabel htmlFor="numberOfEmployees">Number of Employees</FormLabel>
                         <Field id="numberOfEmployees" name="numberOfEmployees" type="number" />
                         <ErrorMessage name="numberOfEmployees" component="div" />
-                    </FormField>
-                    <FormField>
-                        <FormLabel htmlFor="location">Location</FormLabel>
-                        <Field id="location" name="location" />
-                        <ErrorMessage name="location" component="div" />
                     </FormField>
                     <BackButton type="button" onClick={() => setStep(1)}>
                         Back

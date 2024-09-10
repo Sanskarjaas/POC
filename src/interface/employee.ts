@@ -1,7 +1,7 @@
 export interface EmployeeState{
     firstName: string;
     lastName: string;
-    Dob: Dob.toISOString().split('T')[0];
+    Dob: Date;
     gender:string;
     phoneNumber:number;
     emailAddress:string;
@@ -9,7 +9,6 @@ export interface EmployeeState{
     Department:string; 
     departmentHead: string,
     numberOfEmployees: number,
-    location: string,
     loading:boolean;
     error:string|null;
 }
