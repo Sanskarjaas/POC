@@ -2,7 +2,10 @@ import {createSlice,PayloadAction} from '@reduxjs/toolkit';
 import { EmployeeState } from '../interface/employee';
 import { AppThunk } from '../store/store';
 
-const initialState:EmployeeState={
+
+const API_URL = process.env.REACT_APP_API_URL;
+
+const initialState :EmployeeState={
     firstName: '',
     lastName: '',
     Dob: new Date(),
@@ -13,7 +16,6 @@ const initialState:EmployeeState={
     Department:'',
     departmentHead: '',
     numberOfEmployees: 0,
-    location: '',
     loading: false,
     error: null
 }
@@ -34,12 +36,12 @@ const employeeSlice=createSlice({
             //  return {...state, ...action.payload};
             
         },
-        setDepartmentData: (state, action: PayloadAction<Pick<EmployeeState, 'Department' | 'departmentHead' | 'numberOfEmployees' | 'location'>>) => {
-            const { Department, departmentHead, numberOfEmployees, location } = action.payload;
+        setDepartmentData: (state, action: PayloadAction<Pick<EmployeeState, 'Department' | 'departmentHead' | 'numberOfEmployees' >>) => {
+            const { Department, departmentHead, numberOfEmployees} = action.payload;
             state.Department = Department;
             state.departmentHead = departmentHead;
             state.numberOfEmployees = numberOfEmployees;
-            state.location = location;
+           
         },
         clearData: (state) => {
             state.firstName = '';
@@ -52,7 +54,7 @@ const employeeSlice=createSlice({
             state.Department = '';
             state.departmentHead = '';
             state.numberOfEmployees = 0;
-            state.location = '';
+          
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
@@ -67,7 +69,7 @@ export const {setEmployeeData,setDepartmentData,clearData,setLoading,setError}=e
 
 export const submitEmployeeData = (): AppThunk => async (dispatch, getState) => {
     dispatch(setLoading(true));
-    const {  firstName, lastName, Dob, gender, phoneNumber, emailAddress, fullAddress, Department,departmentHead, numberOfEmployees,location} = getState().employee;
+    const {  firstName, lastName, Dob, gender, phoneNumber, emailAddress, fullAddress, Department,departmentHead, numberOfEmployees} = getState().employee;
 
     try {
         // Simulate an API call, replace with actual API integration
