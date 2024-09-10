@@ -9,7 +9,10 @@ import { FormContainer,FormField,FormLabel,BackButton,FormButton } from '../Form
 interface DepartmentFormValues {
     Department: string;
     departmentHead: string;
-    numberOfEmployees: number
+    numberOfEmployees: number;
+    
+
+   
 }
 
 interface DepartmentFormProps {
@@ -37,7 +40,7 @@ const DepartmentForm: React.FC<DepartmentFormProps> = ({ setStep }) => {
         Department: Yup.string().required('Department Name is required'),
         departmentHead: Yup.string().required('Department Head is required'),
         numberOfEmployees: Yup.number().required('Number of Employees is required').typeError('Number of Employees must be a number'),
-        location: Yup.string().required('Location is required')
+
        
     });
     const handleSubmit = (values: DepartmentFormValues) => {
@@ -73,6 +76,7 @@ const DepartmentForm: React.FC<DepartmentFormProps> = ({ setStep }) => {
                         <Field id="numberOfEmployees" name="numberOfEmployees" type="number" />
                         <ErrorMessage name="numberOfEmployees" component="div" />
                     </FormField>
+
                     <BackButton type="button" onClick={() => setStep(1)}>
                         Back
                     </BackButton>
