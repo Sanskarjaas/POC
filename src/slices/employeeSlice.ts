@@ -88,8 +88,8 @@ export const submitEmployeeData = (): AppThunk => async (dispatch, getState) => 
                 fullAddress,
                 Department,
                 departmentHead,
-                numberOfEmployees,
-                location
+                numberOfEmployees
+          
             }),
         });
         if (!response.ok) {
